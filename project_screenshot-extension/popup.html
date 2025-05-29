@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>截图选项</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; width: 280px; padding: 15px; font-size: 14px; }
+    h3 { margin-top: 0; text-align: center; color: #333; }
+    .option-group { margin-bottom: 15px; }
+    .option-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .option-group input[type="radio"] { margin-right: 5px; vertical-align: middle; }
+    .option-group .input-area { margin-left: 20px; margin-top: 5px; }
+    .option-group input[type="number"] { width: 70px; padding: 4px; border: 1px solid #ccc; border-radius: 3px; }
+    button {
+      width: 100%; padding: 10px; background-color: #0078D4; color: white;
+      border: none; border-radius: 4px; cursor: pointer; font-size: 15px;
+      margin-top: 10px;
+    }
+    button:hover { background-color: #005a9e; }
+    button:disabled { background-color: #ccc; cursor: not-allowed; }
+    #status { margin-top: 12px; font-size: 0.9em; color: #555; text-align: center; min-height: 1.2em; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h3>选择截图模式</h3>
+
+  <div class="option-group">
+    <input type="radio" id="captureTypeFull" name="captureType" value="full" checked>
+    <label for="captureTypeFull" style="display: inline;">完整页面 (智能检测)</label>
+  </div>
+
+  <div class="option-group">
+    <input type="radio" id="captureTypeVisible" name="captureType" value="visible">
+    <label for="captureTypeVisible" style="display: inline;">当前可见区域</label>
+  </div>
+
+  <div class="option-group">
+    <input type="radio" id="captureTypeCustomHeight" name="captureType" value="customHeight">
+    <label for="captureTypeCustomHeight" style="display: inline;">自定义高度</label>
+    <div id="customHeightInputDiv" class="input-area hidden">
+      <input type="number" id="customHeightValue" min="100" value="3000"> px (从顶部开始)
+    </div>
+  </div>
+
+  <div class="option-group">
+    <input type="radio" id="captureTypeScreens" name="captureType" value="screens">
+    <label for="captureTypeScreens" style="display: inline;">截取 N 屏</label>
+    <div id="screensInputDiv" class="input-area hidden">
+      <input type="number" id="screensValue" min="1" value="2"> 屏
+    </div>
+  </div>
+
+  <button id="startCaptureBtn">开始截图</button>
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

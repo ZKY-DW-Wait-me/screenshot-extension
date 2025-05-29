@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "高级截图工具",
+  "version": "1.2",
+  "description": "支持长截图、自定义区域截图的扩展。",
+  "permissions": [
+    "activeTab",
+    "debugger",
+    "downloads",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "高级截图选项",
+    "default_popup": "popup.html"
+  }
+}
